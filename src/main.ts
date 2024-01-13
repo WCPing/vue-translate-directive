@@ -2,7 +2,7 @@ import './assets/main.css'
 
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
-import vueSampleDirectTranslate from 'packages/vue-translate-directive/index.js'
+import vueTranslateDirect from 'vue-translate-directive'
 
 import App from './App.vue'
 import router from './router'
@@ -12,6 +12,6 @@ const app = createApp(App)
 app.use(createPinia())
 app.use(router)
 
-app.use(vueSampleDirectTranslate)
+app.use(vueTranslateDirect)
 
 app.mount('#app')

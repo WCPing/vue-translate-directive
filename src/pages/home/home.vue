@@ -51,7 +51,7 @@ const app = getCurrentInstance()
 const searchKeyword = ref('');
 
 const currentLang = window.sessionStorage.getItem('currentLang') || 'zh';
-const cuLang = ref(currentLang)
+const cuLang = ref('en')
 
 const i18n = currentLang === 'zh' ? i18nZh : i18nEn;
 

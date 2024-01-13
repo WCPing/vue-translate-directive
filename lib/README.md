@@ -14,6 +14,11 @@
 
 `app.use(vueTranslateDirect)`
 
+···
+app.use(vueTranslateDirect)
+···
+
+
 #### 使用
 
 使用时，在html页面根容器写加上`v-trans`, v-trans支持传入i18n的JSON数据对象。

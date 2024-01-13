@@ -1,0 +1,23 @@
+{
+    "name": "vue-translate-directive",
+    "private": false,
+    "version": "1.0.0",
+    "description": "Vue directive designed for internationalization of Vue old projects",
+    "main": "vue-translate-directive.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/WCPing/vue-translate-directive"
+    },
+    "keywords": [
+        "translate-directive",
+        "vue-translate",
+        "custom translation",
+        "i18n",
+        "Mutation Observer"
+    ],
+    "author": "Wu CP",
+    "license": "ISC"
+}

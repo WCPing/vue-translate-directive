@@ -1,0 +1,31 @@
+{
+    "home": {
+        "menu": {
+            "home": "首页",
+            "recommend": "新品推荐",
+            "topCatg": "热门分类",
+            "shoppingCart": "购物车",
+            "account": "我的账户"
+        },
+        "search": {
+            "search": "搜索",
+            "placeholder": "搜索您喜欢的品牌"
+        }
+    },
+    "product": {
+        "prodList": "产品列表",
+        "prodDetail": "产品详情",
+        "prodA": "产品A",
+        "prodB": "产品B",
+        "prodADesc": "产品A的详细介绍...AA...",
+        "prodBDesc": "产品B的详细介绍...BB..."
+    },
+    "form": {
+        "chooseBrand": "选择品牌",
+        "ANTA": "安踏",
+        "PIKE": "匹克",
+        "feedback": "线上反馈：",
+        "feedbackPlaceholder": "请输入反馈",
+        "submit": "提交"
+    }
+}

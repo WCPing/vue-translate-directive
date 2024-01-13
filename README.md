@@ -1,20 +1,18 @@
-# translation
-
-This template should help get you started developing with Vue 3 in Vite.
+# vue-translate-directive
 
 ## 老项目国际化无压力
 
-### 业务相关国际化， 通过Mutation Observer查找页面文本， 联合配置的页面关键字，找到对应的国际化文本，然后替换
+#### 业务相关国际化，通过vue3生命周期钩子，在页面挂载前，对dom进行遍历，对于目标文本(即配置的页面关键字)，通过匹配预先传入的国际化对象，如果有匹配值，则将目标文本替换为匹配的国际化值，从而完成静态页面的国际化替换。再通过Mutation Observer监视dom, 对于页面中变化的dom，通过同样的方法，进行国际化转换
 
-#### 例如在用户页面， 有个标签显示"姓名"
+#### 例如在原本的用户页面， 有个标签显示"姓名"
 
 `<span>姓名</span>`
 
-#### 我们根据当前页面的关键字 ，比如'用户/信息',加上'姓名' 然后在国际化英文配置json文件中，找到'用户/信息/姓名'这句话对应的值: 'Name'
+#### 根据当前页面的关键字 ，比如'user/info',加上'name' 然后在国际化英文配置json文件中，找到'user/info/name'这句话对应的值: 'Name'
 
-`{ '用户/信息/姓名': 'Name' }`
+`{ 'user/info/name': 'Name' }`
 
-#### 我们在Mutation Observer中， 找到页面文本， 然后替换'姓名'
+#### 翻译指令会找到该节点，然后替换'姓名'
 
 #### 最终结果
 

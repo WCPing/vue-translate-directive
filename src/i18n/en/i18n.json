@@ -1,0 +1,31 @@
+{
+    "home": {
+        "menu": {
+            "home": "Home",
+            "recommend": "New Product",
+            "topCatg": "Top Categories",
+            "shoppingCart": "Shopping Cart",
+            "account": "My Account"
+        },
+        "search": {
+            "search": "search",
+            "placeholder": "Search for your favorite brand"
+        }
+    },
+    "product": {
+        "prodList": "Product List",
+        "prodDetail": "Product Detail",
+        "prodA": "Prod A",
+        "prodB": "Prod B",
+        "prodADesc": "Prod A description...AA...",
+        "prodBDesc": "Prod B description...BB..."
+    },
+    "form": {
+        "chooseBrand": "Choose Brand",
+        "ANTA": "ANTA",
+        "PIKE": "PIKE",
+        "feedback": "Feedback",
+        "feedbackPlaceholder": "Please Input Feedback",
+        "submit": "submit"
+    }
+}

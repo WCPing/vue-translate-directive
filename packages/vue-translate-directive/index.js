@@ -35,7 +35,7 @@ const handleNode = (node) => {
         handleNodeLit(node.childNodes)
     } else {
         // 文本节点
-        if (node.nodeType === 3) {
+        if (node.nodeType === 3 && isNotEmpty(node.nodeValue)) {
             node.nodeValue = checkNodeValue(node.nodeValue)
         }
         // 属性节点，比如input
@@ -47,9 +47,6 @@ const handleNode = (node) => {
 }
 
 const checkNodeValue = (nodeVal) => {
-    if (!nodeVal) {
-        return nodeVal
-    }
     const nodeArr = nodeVal.trim().split('/')
     if (nodeArr.length === 1) {
         // 没有斜杆，返回原值, 这里对需要保留斜杠显示的做处理
@@ -74,6 +71,10 @@ const handleNodeAttr = (node) => {
     }
 }
 
+const isNotEmpty = (val) => {
+    return val !== '' && val !== null && val !== undefined
+}
+
 // home/menu/account => home.menu.account
 const getValIn = (arr, initObj) => {
     return arr.reduce((pre, cur) => {
@@ -91,6 +92,14 @@ const vTransDirect = {
         }
         // 没有则使用外部的i18n
         handleNode(el)
+        // 还需要检测body下除了根节点外的节点变化
+        const appSiblingNode = Array.from(document.body.childNodes).filter(
+            (node) =>
+                node.nodeType === 1 &&
+                node.nodeName !== 'SCRIPT' &&
+                node.id !== 'app'
+        )
+        handleNodeLit(appSiblingNode)
     },
     mounted(el) {
         mutionObserver.observe(el, mutationObserverInitConfig)
@@ -106,3 +115,8 @@ const vueTranslateDirective = {
 }
 
 export default vueTranslateDirective
+
+// 暴露给外部使用，用于手动转换
+export const translateKey = (str) => {
+    return checkNodeValue(str)
+}

@@ -18,6 +18,21 @@
             </div>
         </div>
     </div>
+
+    <div>
+        <el-collapse>
+            <el-collapse-item title=" product/prodA" name="1">
+                <div>
+                    product/prodADesc
+                </div>
+            </el-collapse-item>
+            <el-collapse-item title=" product/prodB" name="2">
+                <div>
+                    product/prodBDesc
+                </div>
+            </el-collapse-item>
+        </el-collapse>
+    </div>
 </template>
 
 <script setup>

@@ -1,16 +1,18 @@
 <template>
-    <div class="product-page-wrapper" v-trans="{i18n: i18n}">
+    <div class="product-page-wrapper" v-trans="{ i18n: i18n }">
         <!-- 顶部菜单工具栏 -->
         <header class="toolbar">
-            <nav>
-                <ul class="menu-list">
-                    <li><a target="_blank">home/menu/home</a></li>
-                    <li><a target="_blank">home/menu/recommend</a></li>
-                    <li><a target="_blank">home/menu/topCatg</a></li>
-                    <li><a target="_blank">home/menu/shoppingCart</a></li>
-                    <li><a target="_blank">home/menu/account</a></li>
-                </ul>
-            </nav>
+            <el-menu ellipsis class="el-menu-popper-demo" mode="horizontal" style="width: 600px">
+                <el-menu-item index="1">home/menu/home</el-menu-item>
+                <el-sub-menu index="2">
+                    <template #title>home/menu/recommend</template>
+                    <el-menu-item index="2-1">home/menu/topCatg</el-menu-item>
+                    <el-menu-item index="2-2">home/menu/trend</el-menu-item>
+                </el-sub-menu>
+                <el-menu-item index="3">home/menu/shoppingCart</el-menu-item>
+                <el-menu-item index="4">home/menu/account</el-menu-item>
+            </el-menu>
+
             <div class="lang-sw">
                 <select v-model="cuLang" @change="onLangChange">
                     <option value="zh">中文</option>
@@ -22,9 +24,11 @@
         <!-- 搜索栏 -->
         <section class="search-bar">
             <div class="search-container">
-                <input type="text" placeholder="home/search/placeholder" v-model="searchKeyword"
+                <!-- <input type="text" placeholder="home/search/placeholder" v-model="searchKeyword"
                     @keyup.enter="handleSearch" />
-                <button @click="handleSearch">home/search/search</button>
+                <button @click="handleSearch">home/search/search</button> -->
+
+                <el-input v-model="searchKeyword" class="w-50 m-2" size="small" placeholder="home/search/placeholder" :suffix-icon="Search" />
             </div>
         </section>
 
@@ -44,6 +48,7 @@ import i18nZh from '@/i18n/zh/i18n.json'
 
 import ProductList from '@/pages/product-list/productList.vue';
 import Form from '@/pages/form/form.vue'
+import { Search } from '@element-plus/icons-vue'
 
 // 当前语言
 const app = getCurrentInstance()
@@ -95,7 +100,7 @@ const onLangChange = () => {
 
 .search-bar {
     height: 50px;
-    margin-top: 10px;
+    margin-top: 30px;
 }
 
 .search-container input {

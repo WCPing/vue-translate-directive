@@ -4,6 +4,7 @@
             "home": "Home",
             "recommend": "New Product",
             "topCatg": "Top Categories",
+            "trend": "Trend",
             "shoppingCart": "Shopping Cart",
             "account": "My Account"
         },
@@ -26,6 +27,9 @@
         "PIKE": "PIKE",
         "feedback": "Feedback",
         "feedbackPlaceholder": "Please Input Feedback",
-        "submit": "submit"
+        "submit": "submit",
+        "selTip": "please select brand",
+        "cancel": "cancel",
+        "successTip": "Submit Success"
     }
 }

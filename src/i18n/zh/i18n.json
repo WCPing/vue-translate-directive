@@ -4,6 +4,7 @@
             "home": "首页",
             "recommend": "新品推荐",
             "topCatg": "热门分类",
+            "trend": "趋势榜",
             "shoppingCart": "购物车",
             "account": "我的账户"
         },
@@ -26,6 +27,9 @@
         "PIKE": "匹克",
         "feedback": "线上反馈：",
         "feedbackPlaceholder": "请输入反馈",
-        "submit": "提交"
+        "submit": "提交",
+        "selTip": "请选择品牌",
+        "cancel": "取消",
+        "successTip": "提交成功"
     }
 }

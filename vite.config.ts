@@ -7,7 +7,7 @@ import vue from '@vitejs/plugin-vue'
 export default defineConfig({
     plugins: [vue()],
     build: {
-        outDir: 'lib', //输出文件名称
+        outDir: 'lib', //输出文件目录
         lib: {
             entry: path.resolve(__dirname, './packages/index.js'), //指定组件编译入口文件
             name: 'vue-translate-directive',

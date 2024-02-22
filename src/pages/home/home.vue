@@ -34,8 +34,8 @@
 
         <!-- 展示区域 -->
         <main class="product-display">
-            <ProductList></ProductList>
             <Form></Form>
+            <ProductList></ProductList>
         </main>
     </div>
 </template>

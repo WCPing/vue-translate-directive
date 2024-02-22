@@ -18,8 +18,20 @@
         "prodDetail": "Product Detail",
         "prodA": "Prod A",
         "prodB": "Prod B",
+        "prodC": "Prod C",
+        "prodD": "Prod D",
+        "prodE": "Prod E",
+        "prodF": "Prod F",
+        "prodG": "Prod G",
+        "prodH": "Prod H",
         "prodADesc": "Prod A description...AA...",
-        "prodBDesc": "Prod B description...BB..."
+        "prodBDesc": "Prod B description...BB...",
+        "prodCDesc": "Prod A description...CC...",
+        "prodDDesc": "Prod A description...DD...",
+        "prodEDesc": "Prod A description...EE...",
+        "prodFDesc": "Prod A description...FF...",
+        "prodGDesc": "Prod A description...GG...",
+        "prodHDesc": "Prod A description...HH..."
     },
     "form": {
         "chooseBrand": "Choose Brand",

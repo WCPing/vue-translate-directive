@@ -34,9 +34,13 @@ const handleNode = (node) => {
     if (node.childNodes && node.childNodes.length) {
         handleNodeLit(node.childNodes)
     } else {
+        // 已经翻译过的，避免重复进入翻译
+        if (node.vTransed) {
+            return
+        }
         // 文本节点
         if (node.nodeType === 3 && isNotEmpty(node.nodeValue)) {
-            node.nodeValue = checkNodeValue(node.nodeValue)
+            node.nodeValue = checkNodeValue(node)
         }
         // 属性节点，比如input
         if (node.nodeType === 1) {
@@ -46,7 +50,10 @@ const handleNode = (node) => {
     }
 }
 
-const checkNodeValue = (nodeVal) => {
+const checkNodeValue = (target) => {
+    var isNodeVal = typeof target === 'string'
+    var nodeVal = isNodeVal ? target : target.nodeValue
+
     const nodeArr = nodeVal.trim().split('/')
     if (nodeArr.length === 1) {
         // 没有斜杆，返回原值, 这里对需要保留斜杠显示的做处理
@@ -58,14 +65,20 @@ const checkNodeValue = (nodeVal) => {
         return nodeVal
     }
 
-    return getValIn(nodeArr, i18nData)
+    var transedVal = getValIn(nodeArr, i18nData)
+
+    if (!isNodeVal && transedVal) {
+        setAttr(target)
+    }
+
+    return transedVal
 }
 
 const handleNodeAttr = (node) => {
     if (node.nodeName === 'INPUT' || node.nodeName === 'TEXTAREA') {
         Array.from(node.attributes).forEach((attrItem) => {
             if (attrItem.nodeName === 'placeholder') {
-                attrItem.nodeValue = checkNodeValue(attrItem.nodeValue)
+                attrItem.nodeValue = checkNodeValue(attrItem)
             }
         })
     }
@@ -80,6 +93,11 @@ const getValIn = (arr, initObj) => {
     return arr.reduce((pre, cur) => {
         return pre && pre[cur] ? pre[cur] : null
     }, initObj)
+}
+
+// Add "vTransed" attributes to translated text
+const setAttr = (node) => {
+    node.vTransed = true
 }
 
 const mutionObserver = new MutationObserver(mutationObserCallback)

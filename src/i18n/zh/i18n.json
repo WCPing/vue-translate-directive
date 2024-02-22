@@ -18,8 +18,20 @@
         "prodDetail": "产品详情",
         "prodA": "产品A",
         "prodB": "产品B",
+        "prodC": "产品C",
+        "prodD": "产品D",
+        "prodE": "产品E",
+        "prodF": "产品F",
+        "prodG": "产品G",
+        "prodH": "产品H",
         "prodADesc": "产品A的详细介绍...AA...",
-        "prodBDesc": "产品B的详细介绍...BB..."
+        "prodBDesc": "产品B的详细介绍...BB...",
+        "prodCDesc": "产品C的详细介绍...CC...",
+        "prodDDesc": "产品D的详细介绍...DD...",
+        "prodEDesc": "产品E的详细介绍...EE...",
+        "prodFDesc": "产品F的详细介绍...FF...",
+        "prodGDesc": "产品G的详细介绍...GG...",
+        "prodHDesc": "产品H的详细介绍...HH..."
     },
     "form": {
         "chooseBrand": "选择品牌",

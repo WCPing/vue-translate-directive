@@ -122,6 +122,9 @@ const vTransDirect = {
     mounted(el) {
         mutionObserver.observe(el, mutationObserverInitConfig)
     },
+    beforeUnmount() {
+        mutionObserver.disconnect()
+    },
 }
 
 const vueTranslateDirective = {

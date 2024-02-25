@@ -1,7 +1,7 @@
 {
     "name": "vue-translate-directive",
     "private": false,
-    "version": "1.0.7",
+    "version": "1.0.8",
     "description": "Vue directive designed for internationalization of Vue old projects",
     "main": "vue-translate-directive.js",
     "scripts": {

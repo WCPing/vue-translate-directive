@@ -11,6 +11,9 @@
         "search": {
             "search": "search",
             "placeholder": "Search for your favorite brand"
+        },
+        "tool": {
+            "curLang": "Current Language is {0}"
         }
     },
     "product": {

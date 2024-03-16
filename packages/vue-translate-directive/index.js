@@ -31,7 +31,7 @@ const handleNodeLit = (nodeLise) => {
 }
 
 const handleNode = (node) => {
-    if (node.childNodes && node.childNodes.length) {
+    if (node.childNodes && node.childNodes.length && !node.hasAttribute('data-v-trans-ignore')) {
         handleNodeLit(node.childNodes)
     } else {
         // 已经翻译过的，避免重复进入翻译
@@ -54,7 +54,7 @@ const checkNodeValue = (target) => {
     var isNodeVal = typeof target === 'string'
     var nodeVal = isNodeVal ? target : target.nodeValue
 
-    const nodeArr = nodeVal.trim().split('/')
+    const nodeArr = nodeVal.trim().split('/').filter(val => val.trim())
     if (nodeArr.length === 1) {
         // 没有斜杆，返回原值, 这里对需要保留斜杠显示的做处理
         return nodeVal
@@ -127,17 +127,64 @@ const vTransDirect = {
     },
 }
 
+const vTransIgnoreDirect = {
+    created(el) {
+        el.setAttribute('data-v-trans-ignore', 'ignore')
+    }
+}
+
+const replaceVariables = (targetStr, variables) => {
+    return targetStr.replace(/{(\d+)}/g, function(match, index) {
+        return variables[index] || match;
+    });
+}
+
+// data 初始化的转换JSON数据,{en:{}, zh:{}}
+const transOption = {
+    data: null,
+    locale: 'en', // 默认语言,
+}
+
+var curLang = 'en';
+
+const setLang = (option) => {
+    const currentLang = window.sessionStorage.getItem('currentLang');
+    if (!currentLang) {
+        window.sessionStorage.setItem('currentLang', option.locale);
+    }
+    curLang = currentLang || option.locale;
+}
+
 const vueTranslateDirective = {
     installed: false,
     install(app, options) {
         if (this.installed) return
+        options = Object.assign({}, transOption, options)
+        setLang(options);
+        if (options.data) {
+            i18nData = options.data[curLang]
+        }
         app.directive('trans', vTransDirect)
+        app.directive('transIgnore', vTransIgnoreDirect)
     },
 }
 
 export default vueTranslateDirective
 
+export { transOption }
+
 // 暴露给外部使用，用于手动转换
-export const translateKey = (str) => {
-    return checkNodeValue(str)
+// 支持变量传参params， 支持之字符串或者数组
+export const translateKey = (str, params) => {
+    const transedVal = checkNodeValue(str)
+    if (params) {
+        let pArr = []
+        if (Array.isArray(params)) {
+            pArr = params.slice(0)
+        } else {
+            pArr = [params]
+        }
+        return replaceVariables(transedVal, pArr)
+    }
+    return transedVal;
 }

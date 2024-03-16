@@ -11,6 +11,9 @@
         "search": {
             "search": "搜索",
             "placeholder": "搜索您喜欢的品牌"
+        },
+        "tool": {
+            "curLang": "当前语言是 {0}"
         }
     },
     "product": {

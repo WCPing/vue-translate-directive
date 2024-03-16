@@ -19,8 +19,10 @@
         </div>
     </div>
 
-    <div>
-        <el-collapse>
+
+    <div style="margin-top: 20px;">
+        以下部分忽略翻译 v-trans-ignore
+        <el-collapse v-trans-ignore>
             <el-collapse-item title=" product/prodA" name="1">
                 <div>
                     product/prodADesc

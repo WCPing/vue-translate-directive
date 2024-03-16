@@ -1,5 +1,5 @@
 <template>
-    <div class="product-page-wrapper" v-trans="{ i18n: i18n }">
+    <div class="product-page-wrapper" v-trans>
         <!-- 顶部菜单工具栏 -->
         <header class="toolbar">
             <el-menu ellipsis class="el-menu-popper-demo" mode="horizontal" style="width: 600px">
@@ -37,14 +37,14 @@
             <Form></Form>
             <ProductList></ProductList>
         </main>
+        {{ translateKey('home/tool/curLang', currentLang) }}
     </div>
 </template>
   
 <script setup>
 import { ref } from 'vue';
 import { getCurrentInstance } from 'vue'
-import i18nEn from '@/i18n/en/i18n.json'
-import i18nZh from '@/i18n/zh/i18n.json'
+import { translateKey } from 'packages/vue-translate-directive'
 
 import ProductList from '@/pages/product-list/productList.vue';
 import Form from '@/pages/form/form.vue'
@@ -57,8 +57,6 @@ const searchKeyword = ref('');
 
 const currentLang = window.sessionStorage.getItem('currentLang') || 'zh';
 const cuLang = ref('en')
-
-const i18n = currentLang === 'zh' ? i18nZh : i18nEn;
 
 // 搜索处理函数
 const handleSearch = () => {
